@@ -1,0 +1,36 @@
+<schema>
+    <element name="Student"> <!-- only one global ele , dont take for
+							"create fullname ( "-->
+        <complexType><!-- only one child -->
+            <sequence> <!-- children of CT, 3 choices, seq, all, choice or can be attribute -->
+                <element name="age"> <!-- only elements
+									"age"-->
+                    <simpleType>
+                        <restriction base="integer"> <!-- take base as type
+												" integer "-->
+                            <minInclusive value="18"/> <!-- "check(age>=18) ," -->
+                        </restriction>
+                    </simpleType>
+                </element>
+                <element name="first" type="string"/>
+                <element name="last" type="string"/>
+                <element name="Phone">
+                    <simpleType>
+                        <list itemType="string"/>
+                    </simpleType>
+
+                </element>
+                <element name="Address">
+                    <complexType>
+                        <all minOccurs="1">
+                            <element name="Line1" type="string"/>
+                            <element name="city" type="string"/>
+                            <element name="state" type="string"/>
+                        </all>
+                    </complexType>
+                </element>
+            </sequence>
+            <attribute name="Eid" type="integer"/> <!-- type can be primitive or simpleType -->
+        </complexType>
+    </element>
+</schema>
